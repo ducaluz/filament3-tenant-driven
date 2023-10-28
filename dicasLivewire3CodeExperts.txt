@@ -1,0 +1,21 @@
+# ATENÇÃO: pa é um atalho para php artisan
+
+git clone https://github.com/ducaluz/filament3-tenant-driven.git
+cd filament3-tenant-driven/
+composer update
+pa storage:link
+composer require filament/filament
+pa filament:install --panels
+pa filament:upgrade
+pa key:generate
+
+#testar pagina inicial
+pa serve
+
+# criar tabelas de tenants, lojas e produtos
+Bug ==> renomear a migration da tenants para antes das de products e stores.
+pa migrate
+pa make:filament-user
+npm i && npm run dev
+
+
